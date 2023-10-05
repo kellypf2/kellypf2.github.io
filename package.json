@@ -1,0 +1,21 @@
+{
+  "name": "portafolio",
+  "version": "1.0.0",
+  "description": "Portafolio de Iyán",
+  "main": "index.js",
+  "scripts": {
+    "compile-sass": "node-sass styles/sass/main.scss styles/main.css --watch"
+  },
+  "keywords": [
+    "node",
+    "npm"
+  ],
+  "author": "Iyán",
+  "license": "ISC",
+  "devDependencies": {
+    "jquery": "^3.7.1"
+  },
+  "dependencies": {
+    "node-sass": "^9.0.0"
+  }
+}
