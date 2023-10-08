@@ -14,7 +14,7 @@
 
     <link rel="stylesheet" href="/Styles/main.css">
     <!-- <link rel="stylesheet" href="estilo2.css"> -->
-    <script type="module" src="/JS/main.js"></script>
+    <!-- <script type="module" src="/JS/main.js"></script> -->
     <script src="/node_modules/jquery/dist/jquery.js"></script>
 </head>
 
