@@ -1,16 +1,16 @@
 {
   "name": "portafolio",
   "version": "1.0.0",
-  "description": "Portafolio de Iyán",
+  "description": "Portafolio Gerardo Prieto",
   "main": "index.js",
   "scripts": {
-    "compile-sass": "node-sass styles/sass/main.scss styles/main.css --watch"
+    "compile-sass": "node-sass client/styles/sass/main.scss client/styles/main.css --watch"
   },
   "keywords": [
     "node",
     "npm"
   ],
-  "author": "Iyán",
+  "author": "Iyán & Diego",
   "license": "ISC",
   "devDependencies": {
     "jquery": "^3.7.1"
