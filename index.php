@@ -5,6 +5,7 @@
 
 <!-- Loading main Styles -->
 <link rel="stylesheet" href="/client/styles/main.css">
+<link rel="stylesheet" href="/client/styles/normalize.css">
 
 <?php
 //TODO: mirar para renombrar esto a routes.php

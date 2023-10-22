@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /* base */
 body {
   font-family: "Urbanist", sans-serif;
@@ -6,12 +7,56 @@ body {
   margin: 0; }
 
 /* components */
+a {
+  color: #fff;
+  text-decoration: none; }
+
 svg {
   transform: rotate(90deg) scale(2.5);
   filter: invert(100%);
   position: fixed;
   top: 42px;
   right: 43px; }
+
+header {
+  left: 0;
+  padding: 0.5rem;
+  position: fixed;
+  text-align: right;
+  top: 0;
+  transition: transform 0.6s;
+  width: 100%;
+  z-index: 4; }
+
+.nav-wrapper {
+  background-color: #343c55;
+  box-shadow: -1px 0px 3px 0px rgba(0, 0, 0, 0.75);
+  height: 100%;
+  perspective: 1000px;
+  position: fixed;
+  right: 0;
+  top: 0;
+  transform: translateX(100%);
+  transition: transform 0.6s, visibility 0.6s;
+  visibility: hidden;
+  width: 40vw; }
+  .nav-visible .nav-wrapper {
+    transform: translateX(0);
+    visibility: visible; }
+
+.nav {
+  position: relative;
+  list-style: none; }
+  .nav li.active a {
+    background-color: #212635; }
+  .nav a {
+    display: block;
+    line-height: 1.4;
+    padding: 0.7em 0.5em 0.7em 1.4em;
+    text-transform: uppercase; }
+    .nav a:focus, .nav a:hover {
+      background-color: #2b3145;
+      text-decoration: none; }
 
 .home-body {
   display: flex;
@@ -36,3 +81,99 @@ svg {
   width: 100%; }
 
 /* layout */
+/* reset */
+/* Definimos las Custom properties */
+:root {
+  /* Colores */
+  --negro: #393939;
+  /* Tipografía */
+  --tipo-principal: Helvetica, Arial, sans-serif;
+  --tipo-secundaria: Verdana; }
+
+/* Reseteamos los margin y paddings de todas las etiquetas */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  vertical-align: baseline; }
+
+*::before, *::after {
+  display: block; }
+
+/* Evitamos problemas con las imagenes */
+img, picture, video, iframe, figure {
+  max-width: 100%;
+  width: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center center; }
+
+/* Reseteamos los enlaces para funcionar como cajas... */
+a {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  font-size: inherit; }
+
+/* ... excepto los que se encuentran en párrafos */
+p a {
+  display: inline; }
+
+/* Quitamos los puntos de los <li> */
+li {
+  list-style-type: none; }
+
+/* Configuramos anclas suaves */
+html {
+  scroll-behavior: smooth; }
+
+/* Desactivamos estilos por defecto de las principales etiquetas de texto */
+h1, h2, h3, h4, h5, h6, p, span, a, strong, blockquote, i, b, u, em {
+  font-size: inherit;
+  font-weight: inherit;
+  font-style: inherit;
+  text-decoration: none;
+  color: inherit; }
+
+/* Evitamos problemas con los pseudoelementos de quotes */
+blockquote:before, blockquote:after, q:before, q:after {
+  content: '';
+  content: none; }
+
+/* Configuramos el texto que seleccionamos */
+::selection {
+  background-color: var(--negro);
+  color: var(--blanco); }
+
+/* Nivelamos problemas de tipografías y colocación de formularios */
+form, input, textarea, select, button, label {
+  font-family: inherit;
+  font-size: inherit;
+  hyphens: auto;
+  background-color: transparent;
+  color: inherit;
+  display: block;
+  appearance: none; }
+
+/* Reseteamos las tablas */
+table, tr, td {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+/* Evitamos problemas con los SVG */
+svg {
+  width: 100%;
+  display: block;
+  fill: currentColor; }
+
+/* Configuramos la tipografía para toda la web */
+body {
+  min-height: 100vh;
+  font-size: 100%;
+  font-family: var(--tipo-principal);
+  color: var(--negro);
+  hyphens: auto;
+  font-smooth: always;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }

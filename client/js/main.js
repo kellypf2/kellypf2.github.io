@@ -1,5 +1,5 @@
 // Define the URLs to check
-$(document).ready(function() {
+$(document).on('ready', function() {
     // Define the URLs to check
     const url_mapping = {
         '/': '/en/home',
@@ -8,6 +8,7 @@ $(document).ready(function() {
         '/es': '/es/home',
         '/es/': '/es/home'
     };
+
     // Get the current URL path
     const current_path = window.location.pathname;
 
@@ -19,10 +20,8 @@ $(document).ready(function() {
     
 });
 
+let nav_button = $(".nav-button");
 
-const $about_me = $('#about-me');
-const $black_hole = $('#black-hole');
-
-$about_me.on('click', function() {
-    $black_hole.css('transform', 'scale(2)');
+nav_button.on('click', function() { 
+    $('body').toggleClass("nav-visible");
 });

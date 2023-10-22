@@ -1,7 +1,72 @@
+a {
+    color: #fff;
+    text-decoration: none;
+}
+
 svg {
     transform: rotate(90deg) scale(2.5);
     filter: invert(100%);
     position: fixed;
     top: 42px;
     right: 43px;
+}
+
+
+
+
+
+header {
+    left: 0;
+    padding: 0.5rem;
+    position: fixed;
+    text-align: right;
+    top: 0;
+    transition: transform $nav-transition-speed;
+    width: 100%;
+    z-index: 4;
+}
+
+.nav-wrapper {
+    background-color: #343c55;
+    box-shadow: -1px 0px 3px 0px rgba(0, 0, 0, 0.75);
+    height: 100%;
+    perspective: 1000px;
+    position: fixed;
+    right: 0;
+    top: 0;
+    transform: translateX(100%);
+    transition: transform $nav-transition-speed, visibility $nav-transition-speed;
+    visibility: hidden;
+    width: $nav-width;
+  
+    .nav-visible & {
+        transform: translateX(0);
+        visibility: visible;
+    }
+}
+
+.nav {
+    position: relative;
+    list-style: none;
+  
+    li {
+        &.active {
+            a {
+                background-color: #212635;
+            }
+        }
+    }
+
+    a {
+        display: block;
+        line-height: 1.4;
+        padding: 0.7em 0.5em 0.7em 1.4em;
+        text-transform: uppercase;
+        
+        &:focus,
+        &:hover {
+            background-color: #2b3145;
+            text-decoration: none;
+        }
+    }
 }
