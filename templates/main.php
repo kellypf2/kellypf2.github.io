@@ -12,6 +12,7 @@
         <?php echo $content['title']; ?>
     </title>
 </head>
-    <?php include($_SERVER['decorate']); ?>
+
+<?php include($_SERVER['decorate']); ?>
 
 </html>

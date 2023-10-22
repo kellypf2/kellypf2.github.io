@@ -1,0 +1,98 @@
+/* Reset margins and paddings for all tags */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  vertical-align: baseline;
+}
+*::before, *::after {
+  display: block;
+}
+
+/* Prevent issues with images */
+img, picture, video, iframe, figure {
+  max-width: 100%;
+  width: 100%;
+  display: block;
+  object-fit: cover;        
+  object-position: center center;
+}
+
+/* Reset links to function as boxes... */
+a {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  font-size: inherit;
+}
+/* ... except those inside paragraphs */
+p a {
+  display: inline;
+}
+
+/* Remove bullets from <li> elements */
+li {
+  list-style-type: none;
+}
+
+/* Configure smooth anchor scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Disable default styles for main text tags */
+h1, h2, h3, h4, h5, h6, p, span, a, strong, blockquote, i, b, u, em {
+  font-size: inherit;
+  font-weight: inherit;
+  font-style: inherit;
+  text-decoration: none;
+  color: inherit;
+}
+/* Prevent issues with pseudo-elements for quotes */
+blockquote:before, blockquote:after, q:before, q:after {
+  content: '';
+  content: none;
+}
+
+/* Configure selected text */
+::selection {
+  background-color: $color-main1;
+  color: $--white;
+}
+
+/* Address typography and form element placement issues */
+form, input, textarea, select, button, label {
+  font-family: inherit;
+  font-size: inherit;
+  hyphens: auto;
+  background-color: transparent;
+  color: inherit;
+  display: block;
+  appearance: none;
+}
+
+/* Reset table styles */
+table, tr, td {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* Prevent issues with SVG */
+svg {
+  width: 100%;
+  display: block;
+  fill: currentColor;
+}
+
+/* Configure typography for the entire website */
+body {
+  min-height: 100vh;
+  font-size: 100%;
+  font-family: $font-family;
+  color: $color-main1;
+  hyphens: auto;
+  font-smooth: always;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
