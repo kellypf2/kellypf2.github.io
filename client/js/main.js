@@ -1,5 +1,10 @@
 // Define the URLs to check
-$(document).on('ready', function() {
+//# .on -> Not working (not necessary, research if we want)
+//! $(document).on('ready', function() {
+$(document).ready(function() {
+
+    console.log("JS cargado");
+
     // Define the URLs to check
     const url_mapping = {
         '/': '/en/home',
