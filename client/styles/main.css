@@ -1,4 +1,3 @@
-@charset "UTF-8";
 /* base */
 body {
   font-family: "Urbanist", sans-serif;
@@ -7,17 +6,6 @@ body {
   margin: 0; }
 
 /* components */
-a {
-  color: #fff;
-  text-decoration: none; }
-
-svg {
-  transform: rotate(90deg) scale(2.5);
-  filter: invert(100%);
-  position: fixed;
-  top: 42px;
-  right: 43px; }
-
 header {
   left: 0;
   padding: 0.5rem;
@@ -27,9 +15,16 @@ header {
   transition: transform 0.6s;
   width: 100%;
   z-index: 4; }
+  header .nav-button {
+    position: fixed;
+    top: 42px;
+    right: 43px;
+    transform: rotate(90deg) scale(2.5);
+    filter: invert(100%);
+    cursor: pointer; }
 
 .nav-wrapper {
-  background-color: #343c55;
+  background-color: #fff;
   box-shadow: -1px 0px 3px 0px rgba(0, 0, 0, 0.75);
   height: 100%;
   perspective: 1000px;
@@ -39,7 +34,9 @@ header {
   transform: translateX(100%);
   transition: transform 0.6s, visibility 0.6s;
   visibility: hidden;
-  width: 40vw; }
+  width: Max(500px, 40%);
+  max-width: 100%;
+  z-index: 2; }
   .nav-visible .nav-wrapper {
     transform: translateX(0);
     visibility: visible; }
@@ -47,16 +44,56 @@ header {
 .nav {
   position: relative;
   list-style: none; }
-  .nav li.active a {
-    background-color: #212635; }
-  .nav a {
-    display: block;
-    line-height: 1.4;
-    padding: 0.7em 0.5em 0.7em 1.4em;
-    text-transform: uppercase; }
-    .nav a:focus, .nav a:hover {
-      background-color: #2b3145;
-      text-decoration: none; }
+  .nav li {
+    position: relative;
+    height: 138px;
+    border-bottom: 10px solid black;
+    background: linear-gradient(to left, #b5b5b5, #ffffff);
+    background-size: 20% 100%;
+    background-repeat: no-repeat;
+    background-position: right;
+    cursor: pointer;
+    background-size: 20% 100%;
+    transition: background-size 0.3s ease; }
+    .nav li .sharps {
+      width: 340px;
+      height: 75px;
+      background: black;
+      position: absolute;
+      top: 95px;
+      right: 0;
+      z-index: 1;
+      cursor: pointer;
+      border-top-left-radius: 4px;
+      border-bottom-left-radius: 4px;
+      box-shadow: 0px 3px 7px 3px rgba(0, 0, 0, 0.6); }
+      .nav li .sharps-top {
+        top: 88px; }
+      .nav li .sharps-bottom {
+        top: 102px; }
+    .nav li:active {
+      background-size: 100% 100% !important; }
+    .nav li a {
+      display: flex;
+      align-items: center;
+      color: black;
+      line-height: 1.4;
+      padding: 0 1.5em;
+      text-transform: uppercase;
+      font-weight: 800;
+      font-size: 24px; }
+
+.nav-veil {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  visibility: hidden;
+  z-index: 1;
+  background: rgba(0, 0, 0, 0.3); }
+  .nav-visible .nav-veil {
+    visibility: visible; }
 
 .home-body {
   display: flex;
@@ -74,6 +111,7 @@ header {
 
 .home-top {
   height: 100vh;
+  object-position: 75% center;
   filter: brightness(0.8) opacity(0.7); }
 
 .home-bottom {
@@ -82,15 +120,7 @@ header {
 
 /* layout */
 /* reset */
-/* Definimos las Custom properties */
-:root {
-  /* Colores */
-  --negro: #393939;
-  /* Tipografía */
-  --tipo-principal: Helvetica, Arial, sans-serif;
-  --tipo-secundaria: Verdana; }
-
-/* Reseteamos los margin y paddings de todas las etiquetas */
+/* Reset margins and paddings for all tags */
 *, *::before, *::after {
   margin: 0;
   padding: 0;
@@ -101,7 +131,7 @@ header {
 *::before, *::after {
   display: block; }
 
-/* Evitamos problemas con las imagenes */
+/* Prevent issues with images */
 img, picture, video, iframe, figure {
   max-width: 100%;
   width: 100%;
@@ -109,26 +139,26 @@ img, picture, video, iframe, figure {
   object-fit: cover;
   object-position: center center; }
 
-/* Reseteamos los enlaces para funcionar como cajas... */
+/* Reset links to function as boxes... */
 a {
   display: block;
   text-decoration: none;
   color: inherit;
   font-size: inherit; }
 
-/* ... excepto los que se encuentran en párrafos */
+/* ... except those inside paragraphs */
 p a {
   display: inline; }
 
-/* Quitamos los puntos de los <li> */
+/* Remove bullets from <li> elements */
 li {
   list-style-type: none; }
 
-/* Configuramos anclas suaves */
+/* Configure smooth anchor scrolling */
 html {
   scroll-behavior: smooth; }
 
-/* Desactivamos estilos por defecto de las principales etiquetas de texto */
+/* Disable default styles for main text tags */
 h1, h2, h3, h4, h5, h6, p, span, a, strong, blockquote, i, b, u, em {
   font-size: inherit;
   font-weight: inherit;
@@ -136,17 +166,17 @@ h1, h2, h3, h4, h5, h6, p, span, a, strong, blockquote, i, b, u, em {
   text-decoration: none;
   color: inherit; }
 
-/* Evitamos problemas con los pseudoelementos de quotes */
+/* Prevent issues with pseudo-elements for quotes */
 blockquote:before, blockquote:after, q:before, q:after {
   content: '';
   content: none; }
 
-/* Configuramos el texto que seleccionamos */
+/* Configure selected text */
 ::selection {
-  background-color: var(--negro);
-  color: var(--blanco); }
+  background-color: #3a3a3a;
+  color: #fff; }
 
-/* Nivelamos problemas de tipografías y colocación de formularios */
+/* Address typography and form element placement issues */
 form, input, textarea, select, button, label {
   font-family: inherit;
   font-size: inherit;
@@ -156,23 +186,23 @@ form, input, textarea, select, button, label {
   display: block;
   appearance: none; }
 
-/* Reseteamos las tablas */
+/* Reset table styles */
 table, tr, td {
   border-collapse: collapse;
   border-spacing: 0; }
 
-/* Evitamos problemas con los SVG */
+/* Prevent issues with SVG */
 svg {
   width: 100%;
   display: block;
   fill: currentColor; }
 
-/* Configuramos la tipografía para toda la web */
+/* Configure typography for the entire website */
 body {
   min-height: 100vh;
   font-size: 100%;
-  font-family: var(--tipo-principal);
-  color: var(--negro);
+  font-family: "Urbanist", sans-serif;
+  color: #3a3a3a;
   hyphens: auto;
   font-smooth: always;
   -webkit-font-smoothing: antialiased;
